@@ -1,0 +1,19 @@
+{
+  "name": "ai-chat-web",
+  "version": "1.0.0",
+  "description": "AI对话Web界面",
+  "main": "index.js",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "vercel": "^32.3.0"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+} 
