@@ -1005,6 +1005,7 @@
 
         /* 开关样式 */
         .switch-label {
+            position: relative;
             display: flex;
             align-items: center;
             cursor: pointer;
@@ -1013,7 +1014,7 @@
         }
 
         .switch-text {
-            margin-right: 10px;
+            margin-left: 10px;
             color: #666;
             font-size: 14px;
         }
@@ -1041,20 +1042,18 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        input[type="checkbox"] {
-            position: absolute;
+        .switch-label input[type="checkbox"] {
             opacity: 0;
-            cursor: pointer;
-            height: 0;
             width: 0;
+            height: 0;
+            position: absolute;
         }
 
-        /* 修改选择器，确保开关状态正确显示 */
-        #use-proxy:checked ~ .switch {
+        .switch-label input[type="checkbox"]:checked + .switch {
             background: #ff69b4;
         }
 
-        #use-proxy:checked ~ .switch::after {
+        .switch-label input[type="checkbox"]:checked + .switch::after {
             transform: translateX(20px);
         }
     </style>
@@ -1114,11 +1113,11 @@
                     <input type="password" id="ws-password" placeholder="请输入访问密码">
                 </div>
                 <div class="settings-item">
-                    <div class="switch-label">
+                    <label class="switch-label">
                         <input type="checkbox" id="use-proxy" checked>
                         <span class="switch"></span>
                         <span class="switch-text">使用代理</span>
-                    </div>
+                    </label>
                     <div style="font-size: 0.85em; color: #666; margin-top: 4px;">
                         如果无法直接连接服务器,可以尝试开启代理
                     </div>
