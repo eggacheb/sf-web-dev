@@ -1009,11 +1009,13 @@
             align-items: center;
             cursor: pointer;
             user-select: none;
+            margin-bottom: 5px;
         }
 
         .switch-text {
             margin-right: 10px;
             color: #666;
+            font-size: 14px;
         }
 
         .switch {
@@ -1023,6 +1025,7 @@
             background: #ddd;
             border-radius: 20px;
             transition: all 0.3s;
+            flex-shrink: 0;
         }
 
         .switch::after {
@@ -1035,6 +1038,7 @@
             left: 1px;
             background: white;
             transition: all 0.3s;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         input[type="checkbox"] {
@@ -1105,11 +1109,11 @@
                     <input type="password" id="ws-password" placeholder="请输入访问密码">
                 </div>
                 <div class="settings-item">
-                    <label class="switch-label">
+                    <div class="switch-label">
                         <input type="checkbox" id="use-proxy" checked>
                         <span class="switch-text">使用代理</span>
                         <span class="switch"></span>
-                    </label>
+                    </div>
                     <div style="font-size: 0.85em; color: #666; margin-top: 4px;">
                         如果无法直接连接服务器,可以尝试开启代理
                     </div>
