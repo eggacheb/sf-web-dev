@@ -1616,8 +1616,8 @@
                 // 如果没有指定端口，使用默认端口8081
                 const serverAddress = port ? `${ip}:${port}` : `${ip}:8081`;
                 
-                // 判断是否为域名
-                const isDomain = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/.test(ip);
+                // 判断是否包含字母(域名)
+                const isDomain = /[a-zA-Z]/.test(ip);
                 
                 // 根据是否为域名选择不同的代理URL
                 const proxyUrl = isDomain 
