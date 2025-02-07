@@ -1615,7 +1615,7 @@
                 
                 // 如果没有指定端口，使用默认端口8081
                 const serverAddress = port ? `${ip}:${port}` : `${ip}:8081`;
-                const proxyUrl = `wss://sfws.deno.dev?url=${encodeURIComponent(`ws://${serverAddress}`)}`;
+                const proxyUrl = `wss://ws.xingliluni.workers.dev/proxy?url=${encodeURIComponent(`ws://${serverAddress}`)}`;
                 wsConnection = new WebSocket(proxyUrl);
                 
                 const connectionTimeout = setTimeout(() => {
