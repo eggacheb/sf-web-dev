@@ -1002,60 +1002,6 @@
             background: #fff5f7;
             transform: rotate(90deg);
         }
-
-        /* 开关样式 */
-        .switch-label {
-            position: relative;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
-            margin-bottom: 5px;
-        }
-
-        .switch-text {
-            margin-left: 10px;
-            color: #666;
-            font-size: 14px;
-        }
-
-        .switch {
-            position: relative;
-            width: 40px;
-            height: 20px;
-            background: #ddd;
-            border-radius: 20px;
-            transition: all 0.3s;
-            flex-shrink: 0;
-        }
-
-        .switch::after {
-            content: '';
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            border-radius: 18px;
-            top: 1px;
-            left: 1px;
-            background: white;
-            transition: all 0.3s;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .switch-label input[type="checkbox"] {
-            opacity: 0;
-            width: 0;
-            height: 0;
-            position: absolute;
-        }
-
-        .switch-label input[type="checkbox"]:checked + .switch {
-            background: #ff69b4;
-        }
-
-        .switch-label input[type="checkbox"]:checked + .switch::after {
-            transform: translateX(20px);
-        }
     </style>
 </head>
 
@@ -1111,16 +1057,6 @@
                 <div class="settings-item">
                     <label for="ws-password">访问密码:</label>
                     <input type="password" id="ws-password" placeholder="请输入访问密码">
-                </div>
-                <div class="settings-item">
-                    <label class="switch-label">
-                        <input type="checkbox" id="use-proxy" checked>
-                        <span class="switch"></span>
-                        <span class="switch-text">使用代理</span>
-                    </label>
-                    <div style="font-size: 0.85em; color: #666; margin-top: 4px;">
-                        如果无法直接连接服务器,可以尝试开启代理
-                    </div>
                 </div>
                 <button id="ws-connect" class="settings-button">连接</button>
                 <div id="ws-status" class="settings-status"></div>
@@ -1419,7 +1355,6 @@
                 userQQ: document.getElementById('user-qq').value.trim(),
                 botQQ: document.getElementById('bot-qq').value.trim(),
                 wsPassword: document.getElementById('ws-password').value.trim(),
-                useProxy: document.getElementById('use-proxy').checked,
                 lastUpdate: new Date().getTime()
             };
             localStorage.setItem('sf_plugin_settings', JSON.stringify(settings));
@@ -1435,7 +1370,6 @@
                     document.getElementById('user-qq').value = settings.userQQ || '';
                     document.getElementById('bot-qq').value = settings.botQQ || '';
                     document.getElementById('ws-password').value = settings.wsPassword || '';
-                    document.getElementById('use-proxy').checked = settings.useProxy !== undefined ? settings.useProxy : true;
                     
                     if (settings.mode) {
                         currentMode = settings.mode;
@@ -1449,14 +1383,9 @@
                             connectWebSocket(settings.ip, settings.port, true);
                         }, 1000);
                     }
-                } else {
-                    // 首次使用时默认开启代理
-                    document.getElementById('use-proxy').checked = true;
                 }
             } catch (error) {
                 console.error('加载设置失败:', error);
-                // 加载失败时也默认开启代理
-                document.getElementById('use-proxy').checked = true;
             }
         }
 
@@ -1646,7 +1575,6 @@
         document.getElementById('user-qq').addEventListener('change', saveSettings);
         document.getElementById('bot-qq').addEventListener('change', saveSettings);
         document.getElementById('ws-password').addEventListener('change', saveSettings);
-        document.getElementById('use-proxy').addEventListener('change', saveSettings);
 
         // 关闭按钮事件
         document.getElementById('close-settings').addEventListener('click', () => {
@@ -1687,14 +1615,8 @@
                 
                 // 如果没有指定端口，使用默认端口8081
                 const serverAddress = port ? `${ip}:${port}` : `${ip}:8081`;
-                
-                // 根据代理开关状态决定使用哪个URL
-                const useProxy = document.getElementById('use-proxy').checked;
-                const wsUrl = useProxy 
-                    ? `wss://ws.maliya.top?url=${encodeURIComponent(`ws://${serverAddress}`)}`
-                    : `ws://${serverAddress}`;
-                    
-                wsConnection = new WebSocket(wsUrl);
+                const proxyUrl = `wss://ws.maliya.top?url=${encodeURIComponent(`ws://${serverAddress}`)}`;
+                wsConnection = new WebSocket(proxyUrl);
                 
                 const connectionTimeout = setTimeout(() => {
                     if (!wsConnected) {
