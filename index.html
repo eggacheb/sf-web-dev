@@ -481,6 +481,7 @@
             border-top-left-radius: 4px;
             border-left: 3px solid #ffb6c1;
             box-shadow: 1px 1px 8px rgba(255, 182, 193, 0.15);
+            margin-left: 12px;
         }
 
         .left .message-content::before {
@@ -500,6 +501,7 @@
             background-color: #e3f2fd;
             border-top-right-radius: 4px;
             box-shadow: -1px 1px 8px rgba(227, 242, 253, 0.2);
+            margin-right: 12px;
         }
 
         .right .message-content::before {
@@ -1039,10 +1041,10 @@
             transform: translateX(26px);
         }
 
-        /* 添加无头像时的消息样式 */
+        /* 修改无头像时的消息样式 */
         .no-avatar .message {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
         }
 
         .no-avatar .avatar {
@@ -1055,6 +1057,14 @@
 
         .no-avatar .message.right .message-content {
             margin-right: 0;
+        }
+
+        .no-avatar .left .message-content::before {
+            left: 0;
+        }
+
+        .no-avatar .right .message-content::before {
+            right: 0;
         }
 
         /* 添加关闭按钮样式 */
