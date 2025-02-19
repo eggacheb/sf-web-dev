@@ -88,14 +88,23 @@
         .input-container {
             position: fixed;
             bottom: 35px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 60px);
+            left: 20px;
+            right: 20px;
             max-width: 1200px;
+            margin: 0 auto;
             background: transparent;
             padding: 0;
             z-index: 100;
             box-shadow: none;
+            width: auto;
+        }
+
+        @media screen and (min-width: 1240px) {
+            .input-container {
+                left: 50%;
+                width: 1200px;
+                transform: translateX(-50%);
+            }
         }
 
         .input-wrapper {
