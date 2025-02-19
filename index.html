@@ -86,10 +86,13 @@
         }
 
         .input-container {
-            position: absolute;
+            position: fixed;
             bottom: 35px;
-            left: 30px;
-            right: 30px;
+            left: 20px;
+            right: 20px;
+            margin: 0 auto;
+            width: calc(100% - 40px);
+            max-width: 1200px;
             background: transparent;
             padding: 0;
             z-index: 100;
@@ -107,7 +110,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 182, 193, 0.2);
             position: relative;
-            max-width: calc(100% - 60px);
+            max-width: 1200px;
         }
 
         .image-preview-container {
