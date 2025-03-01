@@ -88,10 +88,9 @@
         .input-container {
             position: fixed;
             bottom: 35px;
-            left: 20px;
-            right: 20px;
-            margin: 0 auto;
-            width: calc(100% - 40px);
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 60px);
             max-width: 1200px;
             background: transparent;
             padding: 0;
@@ -101,16 +100,15 @@
 
         .input-wrapper {
             background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            padding: 6px 8px;
+            border-radius: 25px;
+            padding: 8px 12px;
             margin: 0 auto;
             display: flex;
-            gap: 8px;
+            gap: 12px;
             align-items: center;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 182, 193, 0.2);
             position: relative;
-            max-width: 1200px;
         }
 
         .image-preview-container {
@@ -168,13 +166,13 @@
 
         .button-group {
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
 
         .action-button {
-            width: 32px;
-            height: 32px;
-            min-width: 32px;
+            width: 35px;
+            height: 35px;
+            min-width: 35px;
             border-radius: 50%;
             cursor: pointer;
             border: none;
@@ -317,16 +315,16 @@
         #message-input {
             flex: 1;
             min-height: 18px;
-            height: clamp(24px, 2.4vw, 28px);
-            padding: clamp(4px, 0.4vw, 6px) clamp(8px, 1vw, 12px);
-            border-radius: clamp(16px, 2vw, 23px);
+            height: 28px;
+            padding: 6px 16px 8px;
+            border-radius: 23px;
             border: 2px solid rgba(255, 182, 193, 0.5);
             resize: none;
             font-family: inherit;
-            font-size: clamp(14px, 1.4vw, 17px);
+            font-size: 17px;
             transition: all 0.3s ease;
             background: rgba(255, 255, 255, 0.8);
-            line-height: 1.2;
+            line-height: 18px;
             overflow-y: hidden;
             box-sizing: border-box;
             vertical-align: top;
@@ -340,8 +338,8 @@
             box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.1);
         }
         #send-button {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border: none;
             background: transparent;
             color: #ff69b4;
@@ -366,9 +364,9 @@
         }
 
         .mode-toggle {
-            width: 32px;
-            height: 32px;
-            min-width: 32px;
+            width: 35px;
+            height: 35px;
+            min-width: 35px;
             border-radius: 50%;
             cursor: pointer;
             border: none;
@@ -417,11 +415,11 @@
 
         .message {
             display: flex;
-            margin-bottom: clamp(12px, 1.5vw, 20px);
+            margin-bottom: 20px;
             align-items: flex-start;
             position: relative;
-            padding-left: clamp(25px, 2.5vw, 35px);
-            min-height: clamp(40px, 4vw, 51px);
+            padding-left: 35px;
+            min-height: 51px;
             animation: message-slide-up 0.3s ease-out;
             transform-origin: bottom;
         }
@@ -440,13 +438,13 @@
         .message.right {
             flex-direction: row-reverse;
             padding-left: 0;
-            padding-right: clamp(25px, 2.5vw, 35px);
+            padding-right: 35px;
             margin-left: auto;
         }
 
         .avatar {
-            width: clamp(35px, 3.5vw, 45px);
-            height: clamp(35px, 3.5vw, 45px);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             border: 2px solid rgba(255, 255, 255, 0.8);
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -455,21 +453,21 @@
         }
 
         .message.left .avatar {
-            left: clamp(-20px, -2vw, -25px);
+            left: -25px;
         }
 
         .message.right .avatar {
-            right: clamp(-20px, -2vw, -25px);
+            right: -25px;
         }
 
         .message-content {
             max-width: calc(100% - 10px);
             min-width: 50px;
-            padding: clamp(3px, 0.4vw, 6px) clamp(10px, 1.2vw, 16px);
-            border-radius: clamp(10px, 1.2vw, 16px);
+            padding: 0px 16px;
+            border-radius: 20px 20px 20px 20px;
             position: relative;
             animation: pop-in 0.3s ease-out;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
             width: fit-content;
             word-wrap: break-word;
             overflow-wrap: break-word;
@@ -480,47 +478,48 @@
 
         .left .message-content {
             background-color: #ffffff;
-            border-top-left-radius: clamp(3px, 0.4vw, 4px);
-            border-left: clamp(2px, 0.25vw, 3px) solid #ffb6c1;
-            box-shadow: 1px 1px 4px rgba(255, 182, 193, 0.1);
+            border-top-left-radius: 4px;
+            border-left: 3px solid #ffb6c1;
+            box-shadow: 1px 1px 8px rgba(255, 182, 193, 0.15);
         }
 
         .left .message-content::before {
             content: '';
             position: absolute;
-            left: clamp(-8px, -1vw, -10px);
-            top: clamp(12px, 1.5vw, 15px);
+            left: -12px;
+            top: 15px;
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: clamp(6px, 0.8vw, 8px) clamp(8px, 1vw, 10px) clamp(6px, 0.8vw, 8px) 0;
+            border-width: 8px 12px 8px 0;
             border-color: transparent #ffffff transparent transparent;
-            filter: drop-shadow(-1px 0px 1px rgba(255, 182, 193, 0.05));
+            filter: drop-shadow(-3px 0px 2px rgba(255, 182, 193, 0.1));
         }
 
         .right .message-content {
             background-color: #e3f2fd;
-            border-top-right-radius: clamp(3px, 0.4vw, 4px);
-            box-shadow: -1px 1px 4px rgba(227, 242, 253, 0.15);
+            border-top-right-radius: 4px;
+            box-shadow: -1px 1px 8px rgba(227, 242, 253, 0.2);
         }
 
         .right .message-content::before {
             content: '';
             position: absolute;
-            right: clamp(-8px, -1vw, -10px);
-            top: clamp(12px, 1.5vw, 15px);
+            right: -12px;
+            top: 15px;
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: clamp(6px, 0.8vw, 8px) 0 clamp(6px, 0.8vw, 8px) clamp(8px, 1vw, 10px);
+            border-width: 8px 0 8px 12px;
             border-color: transparent transparent transparent #e3f2fd;
         }
 
         @keyframes pop-in {
             0% {
-                transform: scale(0.95);
+                transform: scale(0.8);
                 opacity: 0;
             }
+
             100% {
                 transform: scale(1);
                 opacity: 1;
@@ -528,7 +527,7 @@
         }
 
         .markdown-content {
-            font-size: clamp(14px, 1.4vw, 16px);
+            font-size: 16px;
             line-height: 1.6;
             color: #000000;
             font-weight: 500 !important;
@@ -560,7 +559,7 @@
             background-color: #f8f8f8;
             padding: 3px 8px;
             border-radius: 4px;
-            font-size: clamp(13px, 1.3vw, 15px);
+            font-size: 0.95em;
             border: 1px solid #eee;
             color: #000000;
             font-weight: 500;
@@ -569,11 +568,12 @@
         }
 
         .markdown-content pre {
-            background-color: #f8f8f8;
+            background-color: #fafafa;
             padding: 16px;
+            padding-top: 40px; /* 为标题栏留出空间 */
             border-radius: 8px;
             overflow: visible;
-            border: 1px solid #eee;
+            border: 1px solid #e0e0e0;
             margin: 15px 0;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -582,7 +582,73 @@
             font-weight: 500;
             font-family: "SpaceMono", "Consolas", monospace;
             line-height: 1.5;
-            font-size: clamp(13px, 1.3vw, 15px);
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .markdown-content pre:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
+
+        /* 添加Mac风格标题栏 */
+        .markdown-content pre::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 28px;
+            background: linear-gradient(to bottom, #f0f0f0, #e8e8e8);
+            border-radius: 8px 8px 0 0;
+            border-bottom: 1px solid #d0d0d0;
+        }
+
+        /* 添加Mac风格按钮 */
+        .markdown-content pre::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 10px;
+            z-index: 1;
+            width: 12px;
+            height: 12px;
+            background-color: #ff5f56;
+            border-radius: 50%;
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.05),
+                20px 0 0 #ffbd2e, 
+                20px 0 0 1px rgba(0, 0, 0, 0.05),
+                40px 0 0 #27c93f,
+                40px 0 0 1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 调整代码语言标签位置 */
+        .markdown-content pre .code-lang-tag {
+            position: absolute;
+            top: 6px;
+            right: 10px;
+            color: #666;
+            font-size: 0.75em;
+            z-index: 1;
+            font-family: "LXGWWenKai", sans-serif;
+            text-transform: uppercase;
+            display: none; /* 隐藏语言标签 */
+        }
+        
+        /* 添加标题栏文本 */
+        .markdown-content pre .code-title {
+            position: absolute;
+            top: 6px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #666;
+            font-size: 0.8em;
+            z-index: 1;
+            font-family: "LXGWWenKai", sans-serif;
+            pointer-events: none;
         }
 
         .markdown-content pre code {
@@ -592,6 +658,212 @@
             background: none;
             border: none;
             display: block;
+            overflow-x: auto;
+        }
+        
+        /* 修改复制按钮样式 */
+        .code-copy-button {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            color: #666;
+            font-size: 0.75em;
+            padding: 0;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            opacity: 0;
+            z-index: 2;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+        
+        .markdown-content pre:hover .code-copy-button {
+            opacity: 1;
+        }
+        
+        .code-copy-button:hover {
+            color: #333;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .code-copy-button.copied {
+            color: #27c93f;
+        }
+        
+        .code-copy-button svg {
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+        
+        /* 亮色主题代码高亮 */
+        .hljs {
+            display: block;
+            overflow-x: auto;
+            padding: 0.5em;
+            color: #383a42;
+            background: #fafafa;
+        }
+        
+        .hljs-comment,
+        .hljs-quote {
+            color: #a0a1a7;
+            font-style: italic;
+        }
+        
+        .hljs-keyword,
+        .hljs-selector-tag,
+        .hljs-subst {
+            color: #a626a4;
+            font-weight: bold;
+        }
+        
+        .hljs-number,
+        .hljs-literal,
+        .hljs-variable,
+        .hljs-template-variable,
+        .hljs-tag .hljs-attr {
+            color: #986801;
+        }
+        
+        .hljs-string,
+        .hljs-doctag {
+            color: #50a14f;
+        }
+        
+        .hljs-title,
+        .hljs-section,
+        .hljs-selector-id {
+            color: #e45649;
+            font-weight: bold;
+        }
+        
+        .hljs-subst {
+            font-weight: normal;
+        }
+        
+        .hljs-type,
+        .hljs-class .hljs-title {
+            color: #c18401;
+            font-weight: bold;
+        }
+        
+        .hljs-tag,
+        .hljs-name,
+        .hljs-attribute {
+            color: #0184bc;
+            font-weight: normal;
+        }
+        
+        .hljs-regexp,
+        .hljs-link {
+            color: #50a14f;
+        }
+        
+        .hljs-symbol,
+        .hljs-bullet {
+            color: #0184bc;
+        }
+        
+        .hljs-built_in,
+        .hljs-builtin-name {
+            color: #c18401;
+        }
+        
+        .hljs-meta {
+            color: #4078f2;
+            font-weight: bold;
+        }
+        
+        /* 暗色主题代码块 */
+        .markdown-content pre.dark-theme {
+            background-color: #282c34;
+            border-color: #3e4451;
+        }
+        
+        .markdown-content pre.dark-theme::after {
+            background: linear-gradient(to bottom, #3b3f4c, #343842);
+            border-bottom-color: #3e4451;
+        }
+        
+        .markdown-content pre.dark-theme .code-lang-tag,
+        .markdown-content pre.dark-theme .code-title {
+            color: #abb2bf;
+        }
+        
+        .markdown-content pre.dark-theme code {
+            color: #abb2bf;
+        }
+        
+        .markdown-content pre.dark-theme .code-copy-button {
+            color: #abb2bf;
+        }
+        
+        .markdown-content pre.dark-theme .code-copy-button:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .markdown-content pre.dark-theme .code-copy-button.copied {
+            color: #98c379;
+        }
+        
+        /* 暗色主题代码高亮 */
+        .dark-theme .hljs {
+            color: #abb2bf;
+            background: #282c34;
+        }
+        
+        .dark-theme .hljs-comment,
+        .dark-theme .hljs-quote {
+            color: #5c6370;
+        }
+        
+        .dark-theme .hljs-keyword,
+        .dark-theme .hljs-selector-tag {
+            color: #c678dd;
+        }
+        
+        .dark-theme .hljs-number,
+        .dark-theme .hljs-literal {
+            color: #d19a66;
+        }
+        
+        .dark-theme .hljs-string,
+        .dark-theme .hljs-doctag {
+            color: #98c379;
+        }
+        
+        .dark-theme .hljs-title,
+        .dark-theme .hljs-section,
+        .dark-theme .hljs-selector-id {
+            color: #e06c75;
+        }
+        
+        .dark-theme .hljs-type,
+        .dark-theme .hljs-class .hljs-title {
+            color: #e5c07b;
+        }
+        
+        .dark-theme .hljs-tag,
+        .dark-theme .hljs-name,
+        .dark-theme .hljs-attribute {
+            color: #56b6c2;
+        }
+        
+        .dark-theme .hljs-built_in,
+        .dark-theme .hljs-builtin-name {
+            color: #e5c07b;
+        }
+        
+        .dark-theme .hljs-meta {
+            color: #61afef;
         }
 
         .markdown-content h1,
@@ -610,15 +882,15 @@
         }
 
         .markdown-content h1 {
-            font-size: clamp(20px, 2vw, 2.2em);
+            font-size: 2.2em;
         }
 
         .markdown-content h2 {
-            font-size: clamp(18px, 1.8vw, 1.7em);
+            font-size: 1.7em;
         }
 
         .markdown-content h3 {
-            font-size: clamp(16px, 1.6vw, 1.5em);
+            font-size: 1.5em;
         }
 
         .markdown-content h4 {
@@ -662,6 +934,8 @@
             border-radius: 8px;
             overflow-x: auto;
             display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
         }
 
         .markdown-content th,
@@ -680,6 +954,11 @@
         .markdown-content tr:nth-child(even) {
             background: #fff5f7;
         }
+        
+        /* 表格悬停效果 */
+        .markdown-content tr:hover {
+            background-color: rgba(255, 182, 193, 0.1);
+        }
 
         .markdown-content blockquote {
             margin: 10px 0;
@@ -687,38 +966,71 @@
             border-left: 4px solid #ffb6c1;
             background: #fff5f7;
             border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #555;
         }
-
-        .markdown-content ul,
-        .markdown-content ol {
+        
+        /* 优化列表样式 */
+        .markdown-content ul {
+            list-style-type: disc;
             padding-left: 20px;
+            margin: 10px 0;
         }
-
+        
+        .markdown-content ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
         .markdown-content li {
             margin: 5px 0;
+            line-height: 1.6;
+        }
+        
+        /* 优化链接样式 */
+        .markdown-content a {
+            color: #ff69b4;
+            text-decoration: none;
+            border-bottom: 1px solid #ff69b4;
+            transition: all 0.3s ease;
+            padding-bottom: 1px;
         }
 
+        .markdown-content a:hover {
+            color: #ff1493;
+            border-bottom-color: #ff1493;
+            background-color: rgba(255, 105, 180, 0.05);
+        }
+        
+        /* 优化图片样式 */
+        .markdown-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .markdown-content img:hover {
+            transform: scale(1.01);
+        }
+        
+        /* 优化水平线样式 */
         .markdown-content hr {
             border: none;
             height: 2px;
             background: linear-gradient(to right, #ffb6c1, #ff69b4);
             margin: 20px 0;
+            border-radius: 2px;
         }
-
+        
+        /* 优化任务列表样式 */
         .markdown-content input[type="checkbox"] {
             margin-right: 5px;
-        }
-
-        .markdown-content kbd {
-            background-color: #f7f7f7;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-            color: #333;
-            display: inline-block;
-            font-size: 0.9em;
-            padding: 2px 6px;
-            margin: 0 2px;
+            position: relative;
+            top: 2px;
         }
 
         .cute-girl {
@@ -912,8 +1224,6 @@
         .settings-tab {
             display: none;
             padding: 20px;
-            max-height: 60vh;
-            overflow-y: auto;
         }
 
         .settings-tab.active {
@@ -924,7 +1234,6 @@
         .about-content {
             color: #666;
             line-height: 1.6;
-            padding-right: 10px;
         }
 
         .about-content h4 {
@@ -1084,6 +1393,155 @@
         .close-button:hover {
             background: #fff5f7;
             transform: rotate(90deg);
+        }
+
+        /* 优化任务列表样式 */
+        .markdown-content input[type="checkbox"] {
+            margin-right: 5px;
+            position: relative;
+            top: 2px;
+        }
+        
+        /* 优化键盘样式 */
+        .markdown-content kbd {
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+            color: #333;
+            display: inline-block;
+            font-size: 0.9em;
+            padding: 2px 6px;
+            margin: 0 2px;
+            font-family: "SpaceMono", "Consolas", monospace;
+        }
+        
+        /* 优化行内代码样式 */
+        .markdown-content code:not(pre code) {
+            background-color: rgba(255, 182, 193, 0.1);
+            color: #ff1493;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: "SpaceMono", "Consolas", monospace;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 182, 193, 0.2);
+        }
+        
+        /* 优化标题下划线 */
+        .markdown-content h1::after,
+        .markdown-content h2::after {
+            content: "";
+            display: block;
+            height: 2px;
+            background: linear-gradient(to right, #ffb6c1, transparent);
+            margin-top: 5px;
+            border-radius: 2px;
+        }
+        
+        /* 添加等待回复的动态气泡样式 */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-left: 35px;
+            min-height: 51px;
+            animation: message-slide-up 0.3s ease-out;
+            transform-origin: bottom;
+            position: relative;
+        }
+        
+        .typing-indicator .avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+            position: absolute;
+            top: 0;
+            left: -25px;
+        }
+        
+        .typing-indicator .message-content {
+            background-color: #ffffff;
+            border-top-left-radius: 4px;
+            border-left: 3px solid #ffb6c1;
+            box-shadow: 1px 1px 8px rgba(255, 182, 193, 0.15);
+            padding: 12px 16px;
+            border-radius: 20px 20px 20px 20px;
+            position: relative;
+            animation: pop-in 0.3s ease-out;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            width: fit-content;
+            min-width: 60px;
+            min-height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .typing-indicator .message-content::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 15px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 8px 12px 8px 0;
+            border-color: transparent #ffffff transparent transparent;
+            filter: drop-shadow(-3px 0px 2px rgba(255, 182, 193, 0.1));
+        }
+        
+        /* 新的打字动画效果 */
+        .typing-animation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 20px;
+        }
+        
+        .typing-circle {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 0 2px;
+            background: linear-gradient(to bottom right, #ffb6c1, #ff69b4);
+            border-radius: 50%;
+            animation: typing-bounce 1.2s infinite ease-in-out both;
+            box-shadow: 0 1px 2px rgba(255, 105, 180, 0.2);
+        }
+        
+        .typing-circle:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+        
+        .typing-circle:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+        
+        @keyframes typing-bounce {
+            0%, 80%, 100% { 
+                transform: scale(0.6);
+                opacity: 0.6;
+            }
+            40% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* 在无头像模式下的样式调整 */
+        .no-avatar .typing-indicator {
+            padding-left: 0 !important;
+        }
+        
+        .no-avatar .typing-indicator .avatar {
+            display: none;
+        }
+        
+        .no-avatar .typing-indicator .message-content {
+            margin-left: -20px;
         }
     </style>
 </head>
@@ -1371,7 +1829,63 @@
             imagePreviewContainer.appendChild(previewItem);
         }
         
-        // 发送消息处理
+        // 更新显示等待回复气泡的函数
+        function showTypingIndicator() {
+            // 移除已有的等待指示器
+            removeTypingIndicator();
+            
+            const chatContainer = document.querySelector('.chat-container');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typing-indicator';
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar';
+            
+            // 获取机器人QQ
+            const botQQ = document.getElementById('bot-qq').value.trim();
+            
+            // 设置头像URL
+            if (botQQ) {
+                avatar.style.backgroundImage = `url(https://q1.qlogo.cn/g?b=qq&s=0&nk=${botQQ})`;
+            } else {
+                // 使用默认头像
+                avatar.style.backgroundImage = 'url("public/images/bot-avatar.png")';
+            }
+            avatar.style.backgroundSize = 'cover';
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            
+            const typingAnimation = document.createElement('div');
+            typingAnimation.className = 'typing-animation';
+            
+            // 创建三个圆点
+            for (let i = 0; i < 3; i++) {
+                const circle = document.createElement('div');
+                circle.className = 'typing-circle';
+                typingAnimation.appendChild(circle);
+            }
+            
+            messageContent.appendChild(typingAnimation);
+            typingDiv.appendChild(avatar);
+            typingDiv.appendChild(messageContent);
+            chatContainer.appendChild(typingDiv);
+            
+            // 滚动到指示器
+            setTimeout(() => {
+                typingDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+        
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        // 修改发送消息处理函数，添加等待指示器
         sendButton.addEventListener('click', () => {
             const message = messageInput.value.trim();
             if (!message && !document.querySelector('.image-preview-item')) {
@@ -1415,6 +1929,9 @@
                 // 添加消息到界面(包含图片预览)
                 addMessage(displayContent, 'right', true);
                 
+                // 显示等待回复的指示器
+                showTypingIndicator();
+                
                 // 清空输入框和图片预览
                 messageInput.value = '';
                 imagePreviewContainer.innerHTML = '';
@@ -1424,6 +1941,62 @@
                 showToast('发送消息失败: ' + error.message);
             }
         });
+        
+        // 修改WebSocket消息处理函数，移除等待指示器
+        wsConnection.onmessage = (event) => {
+            try {
+                const msgObj = JSON.parse(event.data);
+                if (msgObj.type === 'auth') {
+                    if (msgObj.success) {
+                        wsAuthenticated = true;
+                        document.getElementById('ws-status').textContent = '已连接';
+                        document.getElementById('ws-status').style.color = '#4CAF50';
+                        showToast('连接成功！');
+                        settingsModal.classList.remove('active');
+                        modalOverlay.classList.remove('active');
+                        saveSettings();
+                    } else {
+                        wsAuthenticated = false;
+                        document.getElementById('ws-status').textContent = '密码错误';
+                        document.getElementById('ws-status').style.color = '#f44336';
+                        showToast('密码错误');
+                    }
+                    return;
+                }
+                
+                // 处理其他类型的消息
+                if (msgObj.type === 'error') {
+                    console.error('[sf插件] 服务器错误:', msgObj.content);
+                    showToast('服务器错误: ' + msgObj.content);
+                    // 移除等待指示器
+                    removeTypingIndicator();
+                } else if (msgObj.type === 'history') {
+                    console.log('[sf插件] 收到历史记录:', msgObj.messages.length, '条消息');
+                    // 处理历史记录
+                    const chatContainer = document.querySelector('.chat-container');
+                    chatContainer.innerHTML = ''; // 清空现有内容
+                    msgObj.messages.forEach(msg => {
+                        addMessage(msg.content, msg.role === 'user' ? 'right' : 'left', false);
+                    });
+                    // 移除等待指示器
+                    removeTypingIndicator();
+                } else if (typeof msgObj.content === 'string') {
+                    const content = String(msgObj.content).trim();
+                    if (content) {
+                        // 移除等待指示器
+                        removeTypingIndicator();
+                        // 显示回复消息
+                        addMessage(content, 'left', true);
+                        console.log('[sf插件] 已接收并显示机器人消息:', content);
+                    }
+                }
+            } catch (error) {
+                console.error('[sf插件] 处理消息错误:', error);
+                showToast('处理消息时出错');
+                // 移除等待指示器
+                removeTypingIndicator();
+            }
+        };
     </script>
 
     <script type="text/javascript">
@@ -1555,6 +2128,75 @@
                     });
                     markdownContent.innerHTML = marked.parse(processedContent);
                 }
+                
+                // 手动应用代码高亮
+                markdownContent.querySelectorAll('pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+                    
+                    // 获取语言并添加到pre标签
+                    const language = block.className.replace(/^.*language-(\w+).*$/, '$1');
+                    const pre = block.parentElement;
+                    
+                    // 随机决定是否使用暗色主题 (70%亮色，30%暗色)
+                    const useDarkTheme = Math.random() > 0.7;
+                    if (useDarkTheme) {
+                        pre.classList.add('dark-theme');
+                    }
+                    
+                    if (language && language !== 'hljs') {
+                        // 创建语言标签元素 (不再显示)
+                        const langTag = document.createElement('span');
+                        langTag.className = 'code-lang-tag';
+                        langTag.textContent = language;
+                        pre.appendChild(langTag);
+                        
+                        // 添加标题栏文本
+                        const titleText = document.createElement('span');
+                        titleText.className = 'code-title';
+                        titleText.textContent = language.charAt(0).toUpperCase() + language.slice(1) + ' 代码';
+                        pre.appendChild(titleText);
+                    } else {
+                        // 如果没有检测到语言，添加默认标题
+                        const titleText = document.createElement('span');
+                        titleText.className = 'code-title';
+                        titleText.textContent = '代码片段';
+                        pre.appendChild(titleText);
+                    }
+                    
+                    // 添加复制按钮
+                    if (!pre.querySelector('.code-copy-button')) {
+                        const copyButton = document.createElement('button');
+                        copyButton.className = 'code-copy-button';
+                        copyButton.title = '复制代码';
+                        
+                        // 创建SVG图标
+                        const svgIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                        svgIcon.setAttribute('viewBox', '0 0 24 24');
+                        svgIcon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
+                        
+                        copyButton.appendChild(svgIcon);
+                        
+                        copyButton.addEventListener('click', function() {
+                            const code = block.textContent;
+                            navigator.clipboard.writeText(code).then(() => {
+                                copyButton.classList.add('copied');
+                                
+                                // 更改SVG图标为勾选图标
+                                svgIcon.innerHTML = '<path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>';
+                                
+                                setTimeout(() => {
+                                    copyButton.classList.remove('copied');
+                                    // 恢复原始复制图标
+                                    svgIcon.innerHTML = '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>';
+                                }, 2000);
+                            }).catch(err => {
+                                console.error('复制失败:', err);
+                                showToast('复制失败: ' + err.message);
+                            });
+                        });
+                        pre.appendChild(copyButton);
+                    }
+                });
             } catch (error) {
                 console.error('Markdown parsing error:', error);
                 markdownContent.textContent = content;
@@ -1786,6 +2428,8 @@
                     }
                     document.getElementById('ws-status').textContent = '未连接';
                     document.getElementById('ws-status').style.color = '#f44336';
+                    // 发生错误时移除等待指示器
+                    removeTypingIndicator();
                 };
                 
                 wsConnection.onmessage = (event) => {
@@ -1813,6 +2457,8 @@
                         if (msgObj.type === 'error') {
                             console.error('[sf插件] 服务器错误:', msgObj.content);
                             showToast('服务器错误: ' + msgObj.content);
+                            // 移除等待指示器
+                            removeTypingIndicator();
                         } else if (msgObj.type === 'history') {
                             console.log('[sf插件] 收到历史记录:', msgObj.messages.length, '条消息');
                             // 处理历史记录
@@ -1821,9 +2467,14 @@
                             msgObj.messages.forEach(msg => {
                                 addMessage(msg.content, msg.role === 'user' ? 'right' : 'left', false);
                             });
+                            // 移除等待指示器
+                            removeTypingIndicator();
                         } else if (typeof msgObj.content === 'string') {
                             const content = String(msgObj.content).trim();
                             if (content) {
+                                // 移除等待指示器
+                                removeTypingIndicator();
+                                // 显示回复消息
                                 addMessage(content, 'left', true);
                                 console.log('[sf插件] 已接收并显示机器人消息:', content);
                             }
@@ -1831,6 +2482,8 @@
                     } catch (error) {
                         console.error('[sf插件] 处理消息错误:', error);
                         showToast('处理消息时出错');
+                        // 移除等待指示器
+                        removeTypingIndicator();
                     }
                 };
             } catch (error) {
@@ -1839,6 +2492,8 @@
                 }
                 document.getElementById('ws-status').textContent = '未连接';
                 document.getElementById('ws-status').style.color = '#f44336';
+                // 连接失败时移除等待指示器
+                removeTypingIndicator();
             }
         }
 
