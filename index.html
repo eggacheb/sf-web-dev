@@ -1736,8 +1736,13 @@
         // 自动调整输入框高度的函数
         function autoResize(textarea) {
             textarea.style.height = '28px';  // 基础高度 = min-height + padding*2
-            const newHeight = Math.max(28, textarea.scrollHeight);
+            const newHeight = Math.max(28, Math.min(textarea.scrollHeight, 120)); // 限制最大高度为120px
             textarea.style.height = newHeight + 'px';
+        }
+
+        // 重置输入框高度的函数
+        function resetInputHeight(textarea) {
+            textarea.style.height = '28px';
         }
 
         // 监听输入事件
@@ -1935,7 +1940,7 @@
                 // 清空输入框和图片预览
                 messageInput.value = '';
                 imagePreviewContainer.innerHTML = '';
-                autoResize(messageInput);
+                resetInputHeight(messageInput);
             } catch (error) {
                 console.error('发送消息错误:', error);
                 showToast('发送消息失败: ' + error.message);
