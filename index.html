@@ -1735,6 +1735,11 @@
 
         // 自动调整输入框高度的函数
         function autoResize(textarea) {
+            // 如果输入框为空，直接重置为默认高度
+            if (textarea.value.trim() === '') {
+                textarea.style.height = '28px';
+                return;
+            }
             textarea.style.height = '28px';  // 基础高度 = min-height + padding*2
             const newHeight = Math.max(28, Math.min(textarea.scrollHeight, 120)); // 限制最大高度为120px
             textarea.style.height = newHeight + 'px';
