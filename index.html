@@ -1745,11 +1745,6 @@
             textarea.style.height = newHeight + 'px';
         }
 
-        // 重置输入框高度的函数
-        function resetInputHeight(textarea) {
-            textarea.style.height = '28px';
-        }
-
         // 监听输入事件
         messageInput.addEventListener('input', function() {
             autoResize(this);
@@ -1945,7 +1940,7 @@
                 // 清空输入框和图片预览
                 messageInput.value = '';
                 imagePreviewContainer.innerHTML = '';
-                resetInputHeight(messageInput);
+                autoResize(messageInput);
             } catch (error) {
                 console.error('发送消息错误:', error);
                 showToast('发送消息失败: ' + error.message);
