@@ -96,6 +96,18 @@
             padding: 0;
             z-index: 100;
             box-shadow: none;
+            transition: bottom 0.3s ease;
+        }
+
+        @media screen and (max-width: 768px) {
+            .input-container {
+                position: sticky;
+                bottom: 15px;
+                margin: 0 auto;
+                transform: none;
+                left: 0;
+                width: 100%;
+            }
         }
 
         .input-wrapper {
@@ -2519,6 +2531,38 @@
         document.getElementById('avatar-toggle').addEventListener('change', function() {
             saveSettings();
         });
+
+        // 处理移动设备虚拟键盘弹出的问题
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+            // 监听输入框获取焦点事件
+            messageInput.addEventListener('focus', function() {
+                // 短暂延迟后滚动到输入框位置
+                setTimeout(() => {
+                    messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
+                }, 300);
+            });
+
+            // 监听窗口大小变化（键盘弹出会触发）
+            window.addEventListener('resize', function() {
+                if (document.activeElement === messageInput) {
+                    // 确保输入框在视图中
+                    setTimeout(() => {
+                        messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    }, 100);
+                }
+            });
+
+            // 监听输入框点击事件
+            messageInput.addEventListener('click', function(e) {
+                // 防止输入框消失
+                e.preventDefault();
+                messageInput.focus();
+                setTimeout(() => {
+                    messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
+                }, 100);
+            });
+        }
     </script>
 </body>
 
