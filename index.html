@@ -97,6 +97,7 @@
             z-index: 100;
             box-shadow: none;
             transition: bottom 0.3s ease;
+            display: block !important; /* 确保始终显示 */
         }
 
         @media screen and (max-width: 768px) {
@@ -107,6 +108,16 @@
                 transform: none;
                 left: 0;
                 width: 100%;
+                z-index: 999; /* 提高z-index确保在顶层 */
+            }
+            
+            /* 确保在虚拟键盘收起后页面布局正确 */
+            body.keyboard-open .input-container {
+                position: fixed;
+            }
+            
+            body.keyboard-closed .input-container {
+                position: sticky;
             }
         }
 
@@ -2535,21 +2546,54 @@
         // 处理移动设备虚拟键盘弹出的问题
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         if (isMobile) {
+            // 记录窗口初始高度
+            let windowHeight = window.innerHeight;
+            
+            // 检测键盘状态
+            function detectKeyboard() {
+                // 如果当前高度明显小于初始高度，则认为键盘打开
+                if (window.innerHeight < windowHeight * 0.8) {
+                    document.body.classList.add('keyboard-open');
+                    document.body.classList.remove('keyboard-closed');
+                } else {
+                    document.body.classList.remove('keyboard-open');
+                    document.body.classList.add('keyboard-closed');
+                }
+            }
+            
+            // 页面加载时初始化
+            window.addEventListener('load', function() {
+                windowHeight = window.innerHeight;
+                document.body.classList.add('keyboard-closed');
+            });
+            
             // 监听输入框获取焦点事件
             messageInput.addEventListener('focus', function() {
                 // 短暂延迟后滚动到输入框位置
                 setTimeout(() => {
                     messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
+                    detectKeyboard();
                 }, 300);
             });
 
             // 监听窗口大小变化（键盘弹出会触发）
             window.addEventListener('resize', function() {
+                detectKeyboard();
+                
                 if (document.activeElement === messageInput) {
                     // 确保输入框在视图中
                     setTimeout(() => {
                         messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
                     }, 100);
+                } else {
+                    // 键盘收起时，确保输入框可见
+                    setTimeout(() => {
+                        const inputContainer = document.querySelector('.input-container');
+                        if (inputContainer) {
+                            inputContainer.style.display = 'block';
+                            inputContainer.scrollIntoView({behavior: 'smooth', block: 'end'});
+                        }
+                    }, 300);
                 }
             });
 
@@ -2561,6 +2605,32 @@
                 setTimeout(() => {
                     messageInput.scrollIntoView({behavior: 'smooth', block: 'center'});
                 }, 100);
+            });
+            
+            // 监听输入框失去焦点事件
+            messageInput.addEventListener('blur', function() {
+                // 当输入框失去焦点时（如点击其他区域），确保输入框仍然可见
+                setTimeout(() => {
+                    const inputContainer = document.querySelector('.input-container');
+                    if (inputContainer) {
+                        inputContainer.style.display = 'block';
+                        // 确保输入框在视图底部可见
+                        inputContainer.scrollIntoView({behavior: 'smooth', block: 'end'});
+                    }
+                }, 500); // 延迟稍长一些，等待虚拟键盘完全收起
+            });
+            
+            // 监听整个文档的点击事件
+            document.addEventListener('click', function(e) {
+                // 如果点击的不是输入框，确保输入框可见
+                if (e.target !== messageInput) {
+                    setTimeout(() => {
+                        const inputContainer = document.querySelector('.input-container');
+                        if (inputContainer && window.getComputedStyle(inputContainer).display === 'none') {
+                            inputContainer.style.display = 'block';
+                        }
+                    }, 300);
+                }
             });
         }
     </script>
