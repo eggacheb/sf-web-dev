@@ -699,7 +699,7 @@ body::before {
 
 /* ========== Markdown内容样式 ========== */
 .markdown-content {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.7;
     color: var(--text-primary);
     font-weight: 500;
@@ -1691,8 +1691,8 @@ input:checked + .toggle-slider::before {
     }
     
     .markdown-content {
-        font-size: 15px;
-        line-height: 1.75;
+        font-size: 16px;
+        line-height: 1.8;
     }
     
     #settings-modal {
@@ -1773,7 +1773,7 @@ input:checked + .toggle-slider::before {
     }
     
     .markdown-content {
-        font-size: 15px;
+        font-size: 16px;
         line-height: 1.8;
     }
     
