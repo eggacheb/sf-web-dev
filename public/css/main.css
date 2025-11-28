@@ -1691,7 +1691,8 @@ input:checked + .toggle-slider::before {
     }
     
     .markdown-content {
-        font-size: 14px;
+        font-size: 15px;
+        line-height: 1.75;
     }
     
     #settings-modal {
@@ -1769,6 +1770,11 @@ input:checked + .toggle-slider::before {
     .message-content {
         padding: 10px 12px;
         border-radius: 16px;
+    }
+    
+    .markdown-content {
+        font-size: 15px;
+        line-height: 1.8;
     }
     
     .markdown-content pre {
