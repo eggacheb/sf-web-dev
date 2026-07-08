@@ -670,7 +670,7 @@ const WebSocketManager = {
             
             const proxyUrl = isDomain 
                 ? `wss://hws.maliya.top/proxy?url=${encodeURIComponent(`ws://${serverAddress}`)}`
-                : `wss://sfws.maliy.top?url=${encodeURIComponent(`ws://${serverAddress}`)}`;
+                : `wss://tiny-finch-4345.aggcheb.deno.net?url=${encodeURIComponent(`ws://${serverAddress}`)}`;
                 
             AppState.wsConnection = new WebSocket(proxyUrl);
             
